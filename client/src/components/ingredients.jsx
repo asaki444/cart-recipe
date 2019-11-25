@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react';
-
+ 
 function Ingredients(props){
+    const ingredients = props;
+    console.log(ingredients);
     return(
-      {props.ingredients.map( item => <div className="ingredient-row">
-        {item.amount} {item.name}
-      </div>}
+      {}
     )
 }
 
