@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import Ingredients from './ingredients';
 
 function Recipe(props){
     const {
@@ -15,10 +16,9 @@ function Recipe(props){
         <div className="recipe-title">
             {title}
         </div>
-        <div>
-            {ingredients.map( item => 
-               {item.amount; item.name}
-                )}
+        <Ingredients {ingredients} />
+        <div className="instructions-contain">
+          {instruction}
         </div>
       </>
     )

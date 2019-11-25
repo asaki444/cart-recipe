@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-
+import Recipe from './recipe.jsx';
 class RecipesContainer extends Component {
 
     constructor(props){
@@ -24,7 +24,11 @@ class RecipesContainer extends Component {
     render() {
         return (
             <div className="recipes-container">
-                Recipes
+
+                {recipes.map( item=> 
+                    <Recipe ingredients={item.ingredients} title={item.title} origin={item.origin} instructions={item.instructions} />
+                    )}
+               
             </div>
         )
     }
