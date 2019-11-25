@@ -1,3 +1,3 @@
 class Instruction < ApplicationRecord
-    has_one :recipe
+    belongs_to :recipe
 end
