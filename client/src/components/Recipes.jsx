@@ -15,11 +15,9 @@ class RecipesContainer extends Component {
     componentDidMount() {
         axios.get('http://localhost:3001/api/v1/recipes.json')
         .then(response => {
-            console.log(response)
-            console.log("we made it!")
-            // this.setState({
-            //     recipes: response.recipes
-            // })
+             this.setState({
+                recipes: response.data
+            })
         })
         .catch(error => console.log(error))
      
@@ -28,10 +26,10 @@ class RecipesContainer extends Component {
     render() {
         return (
             <div className="recipes-container">
-    hiii
-                {/* {recipes.map( item=> 
-                    <Recipe ingredients={item.ingredients} title={item.title} origin={item.origin} instructions={item.instructions} />
-                    )} */}
+
+                {this.state.recipes.map( item=> 
+                    console.log(item)
+                    )}
                
             </div>
         )
