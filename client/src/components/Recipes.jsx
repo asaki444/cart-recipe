@@ -24,11 +24,12 @@ class RecipesContainer extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="recipes-container">
 
                 {this.state.recipes.map( item=> 
-                    console.log(item)
+                  item
                     )}
                
             </div>
