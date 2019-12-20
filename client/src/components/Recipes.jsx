@@ -15,6 +15,7 @@ class RecipesContainer extends Component {
     componentDidMount() {
         axios.get('http://localhost:3001/api/v1/recipes.json')
         .then(response => {
+             console.log(response.data)
              this.setState({
                 recipes: response.data
             })
@@ -29,7 +30,7 @@ class RecipesContainer extends Component {
             <div className="recipes-container">
 
                 {this.state.recipes.map( item=> 
-                  item
+                  <h2>{item.title}</h2>
                     )}
                
             </div>
