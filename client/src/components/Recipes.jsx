@@ -30,7 +30,12 @@ class RecipesContainer extends Component {
             <div className="recipes-container">
 
                 {this.state.recipes.map( item=> 
-                  <h2>{item.title}</h2>
+                 <Recipe title={item.title} 
+                 ingredients={item.ingredients}
+                 instruction={item.instruction}
+                 origin={item.instruction}
+                 />
+
                     )}
                
             </div>
