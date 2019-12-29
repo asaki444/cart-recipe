@@ -7,7 +7,7 @@ class RecipesContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
-            recipes: []
+            recipes: ""
         }
       
     }
@@ -25,15 +25,15 @@ class RecipesContainer extends Component {
     }
 
     render() {
-        console.log(this.state);
+        let recipes = this.state.recipes ||[]
         return (
             <div className="recipes-container">
 
-                {this.state.recipes.map( item=> 
+                 { recipes === [] ? "Loading..." : recipes.map( item=> 
                  <Recipe title={item.title} 
                  ingredients={item.ingredients}
                  instruction={item.instruction}
-                 origin={item.instruction}
+                 origin={item.origin}
                  />
 
                     )}

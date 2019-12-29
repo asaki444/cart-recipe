@@ -10,7 +10,7 @@ function Recipe(props){
        origin
     }
     = props;
-
+    console.log(props)
     return(
       <>
         <div className="recipe-title">
