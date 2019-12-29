@@ -5,9 +5,10 @@ import axios from 'axios';
 class RecipesContainer extends Component {
 
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
-            recipes: ""
+            recipes: [],
+            notLoaded: true
         }
       
     }
@@ -15,21 +16,23 @@ class RecipesContainer extends Component {
     componentDidMount() {
         axios.get('http://localhost:3001/api/v1/recipes.json')
         .then(response => {
-             console.log(response.data)
+         
              this.setState({
-                recipes: response.data
+                recipes: response.data,
+                notLoaded:false
             })
+            console.log(this.state)
         })
         .catch(error => console.log(error))
      
     }
 
     render() {
-        let recipes = this.state.recipes ||[]
+        const {recipes, notLoaded} = this.state; 
         return (
             <div className="recipes-container">
-
-                 { recipes === [] ? "Loading..." : recipes.map( item=> 
+                {notLoaded && <p>Loading...</p>}
+                 {recipes.length > 0 && recipes.map( item=> 
                  <Recipe title={item.title} 
                  ingredients={item.ingredients}
                  instruction={item.instruction}
