@@ -10,4 +10,4 @@ cereal = Ingredient.create({title: 'cereal', amount: 1, measurement: 'cup'})
 milk = Ingredient.create({title: 'milk', amount: 1, measurement: 'cup' })
 instruction = Instruction.create(instruction: 'pour cereal into bowl and add milk')
 
-first_recipe = Recipe.create({title: 'Cereal and Milk', servings: 1, origin: 'American',  ingredients: milk, cereal})
+first_recipe = Recipe.create({title: 'Cereal and Milk', servings: 1, origin: 'American'})
