@@ -16,7 +16,9 @@ function Recipe(props){
         <div className="recipe-title">
             {title}
         </div>
-  
+        <div>
+          {origin}
+          </div>
         <div className="instructions-contain">
           {instruction}
         </div>
