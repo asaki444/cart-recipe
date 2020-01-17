@@ -1,7 +1,7 @@
 module Api::V1
 
     class SessionsController < ApplicationController
-
+      include CurrentUserConcern
         def create
             user = User.find_by(email: params["users"]["email"]).try(:authenticate, params["users"]["password"])
 
@@ -17,6 +17,19 @@ module Api::V1
                 status: 401
             }
             end
+
+          def logged_in
+            if @current_user 
+                render json: {
+                    logged_in: true,
+                    user: @current_user
+                }
+            else
+                render json: {
+                    logged_in: false
+                }
+            end
+          end
         end
         
     end
