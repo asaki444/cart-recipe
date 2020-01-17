@@ -16,9 +16,10 @@ module Api::V1
             render json: {
                 status: 401
             }
-            end
+           end
+        end
 
-          def logged_in
+         def logged_in
             if @current_user 
                 render json: {
                     logged_in: true,
@@ -30,6 +31,14 @@ module Api::V1
                 }
             end
           end
+   
+
+          def logout 
+            reset_session
+            render json: {
+                status: 200,
+                logged_out: true
+            }
         end
         
     end
