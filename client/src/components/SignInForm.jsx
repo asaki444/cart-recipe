@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl} from "react-bootstrap";
 import axios from "axios";
 
-class SignInForm extends Component (){
+class SignInForm extends Component{
     constructor(props){
         super(props)
         this.state = {
