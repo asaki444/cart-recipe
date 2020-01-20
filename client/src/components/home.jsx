@@ -1,20 +1,24 @@
 
-import React, { Component } from 'react';
+import React from 'react';
+import RegistrationForm from './RegistrationForm';
  
-function Home(){
-    <div>
-      Food Recipes I have tried
+export default function Home() {
 
-      <div>
-      <button className="SignIn">
-       SignIn
-      </button>
-      <button>
-          View Recipes
-      </button>
-          </div>
-      
-    </div>
+    return(
+        <div>
+        Food Recipes I have tried
+  
+        <div>
+        <button className="SignIn">
+         <RegistrationForm />
+        </button>
+        <button>
+            View Recipes
+        </button>
+            </div>
+        
+      </div>
+    )
+   
 }
 
-export default Home;

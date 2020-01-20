@@ -1,21 +1,53 @@
 import React, { Component} from 'react';
+import axios from 'axios';
 
-
-export default class Registration extends Component {
+export default class extends Component {
     constructor(props){
        super(props);
 
        this.state = {
            email: "",
            password: "",
+           username: "",
            password_confirmation : "",
            registrationErrors: ""
        }
     }
 
-     handleSubmit = ()=>{
-       console.log("form submitted");
+     handleSubmit = (event)=>{
+        const {
+            email,
+            password,
+            password_confirmation,
+            username
+        } = this.state;
+        axios.post("https://localhost:3001/api/v1/registrations",
+        {
+            user:{
+                email: email,
+                username: username,
+                password: password,
+                password_confirmation: password_confirmation
+            }
+        }, 
+        {
+         withCredentials:true
+        }.withCredentials(
+            response => console.log(response)
+        ).catch( error => {
+            console.log("registration  error", error )
+        }
+        )
+        )
        event.preventDefault();
+
+     }
+
+     handleChange = (event) => {
+        event.preventDefault();
+        this.setState({
+            [event.target.name]: event.target.value
+        })
      }
 
     render(){
@@ -27,6 +59,26 @@ export default class Registration extends Component {
                onChange={this.handleChange}
                required
                />
+               <input
+               type="password"
+               name="password"
+               placeholder="Password"
+               value={this.state.password}
+               onChange={this.handleChange}
+               required
+               />
+
+               <input
+               type="password_confirmation"
+               name="password_confirmation"
+               placeholder="Password confirmation" 
+               value={this.state.password_confirmation}
+               onChange={this.handleChange}
+               required
+               />
+               <button type="submit">
+                   Registration
+               </button>
               </form>
 
             </div>
