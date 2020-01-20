@@ -18,7 +18,7 @@ function App() {
         <Route path="/recipes">
         <RecipesContainer />
         </Route>
-        <Route path="/">
+        <Route path="/signin">
           <SigninForm/>
         </Route>
       </Switch>
