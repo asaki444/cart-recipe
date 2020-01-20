@@ -12,4 +12,24 @@ export default class Registration extends Component {
            registrationErrors: ""
        }
     }
+
+     handleSubmit = ()=>{
+       console.log("form submitted");
+       event.preventDefault();
+     }
+
+    render(){
+        return (
+            <div>
+              <form onSubmit={this.handleSubmit}>
+               <input type="email" name="email" placeholder="email"
+               value={this.state.email}
+               onChange={this.handleChange}
+               required
+               />
+              </form>
+
+            </div>
+        )
+    }
 }
