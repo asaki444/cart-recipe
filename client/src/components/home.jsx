@@ -9,9 +9,9 @@ export default function Home() {
         Food Recipes I have tried
   
         <div>
-        <button className="SignIn">
+
          <RegistrationForm />
-        </button>
+      
         <button>
             View Recipes
         </button>

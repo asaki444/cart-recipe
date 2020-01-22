@@ -21,7 +21,8 @@ export default class extends Component {
             password_confirmation,
             username
         } = this.state;
-        axios.post("https://localhost:3001/api/v1/registrations",
+        debugger
+        axios.post("localhost:3001/api/v1/registrations",
         {
             user:{
                 email: email,
@@ -31,15 +32,15 @@ export default class extends Component {
             }
         }, 
         {
-         withCredentials:true
-        }.withCredentials(
-            response => console.log(response)
+         withCredentials: true
+        }).then(
+             response => console.log(`response: ${response}`)
         ).catch( error => {
             console.log("registration  error", error )
         }
         )
-        )
-       event.preventDefault();
+    
+
 
      }
 
@@ -59,6 +60,15 @@ export default class extends Component {
                onChange={this.handleChange}
                required
                />
+           <input
+               type="username"
+               name="username"
+               placeholder="Username"
+               value={this.state.username}
+               onChange={this.handleChange}
+               required
+               />
+
                <input
                type="password"
                name="password"
@@ -69,7 +79,7 @@ export default class extends Component {
                />
 
                <input
-               type="password_confirmation"
+               type="password"
                name="password_confirmation"
                placeholder="Password confirmation" 
                value={this.state.password_confirmation}
