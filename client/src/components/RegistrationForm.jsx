@@ -15,21 +15,23 @@ export default class extends Component {
     }
 
      handleSubmit = (event)=>{
+        event.preventDefault(); 
         const {
             email,
             password,
             password_confirmation,
             username
         } = this.state;
-        debugger
+
         axios.post("localhost:3001/api/v1/registrations",
         {
             user:{
-                email: email,
-                username: username,
+                email_address: email,
+                user_name: username,
                 password: password,
                 password_confirmation: password_confirmation
             }
+        
         }, 
         {
          withCredentials: true
