@@ -23,7 +23,7 @@ export default class extends Component {
             username
         } = this.state;
 
-        axios.post("localhost:3001/api/v1/registrations",
+        axios.post("http://localhost:3001/api/v1/registrations",
         {
             user:{
                 email_address: email,
