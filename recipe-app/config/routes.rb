@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :ingredients
     resources :users
     resources :sessions, only: [:create]
-    resources :registrations, only: [:create,:show]
+    resources :registrationc, only: [:create]
     delete :logout, to: "sessions#logout"
     get :logged_in, to: "sessions#logged_in"
 
