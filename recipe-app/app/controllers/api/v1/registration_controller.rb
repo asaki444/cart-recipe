@@ -7,7 +7,7 @@ module Api::V1
                 password_confirmation: params['user'][
                     'password_confirmation'
                 ]
-                username: params['user']['username']
+                username: params['user']['user_name']
             )
 
             if user
@@ -21,6 +21,11 @@ module Api::V1
                     status: 500
                 }
             end
+        end
+
+        def index
+          @registrations = Registration.all
+          render json: @registrations
         end
     end
 end
