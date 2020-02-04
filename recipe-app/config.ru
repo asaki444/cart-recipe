@@ -21,12 +21,12 @@ use Rack::Cors do
   
     allow do
       origins '*'
-      resource '/public/*', headers: :any, methods: :get
+      resource '/public/*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options]
   
       # Only allow a request for a specific host
       resource '/api/v1/*',
           headers: :any,
-          methods: :get,
+          methods: [:get, :post, :delete, :put, :patch, :options],
           if: proc { |env| env['HTTP_HOST'] == 'api.example.com' }
     end
   end

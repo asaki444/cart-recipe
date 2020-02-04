@@ -26,12 +26,14 @@ module RecipeApp
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins 'http://localhost:3000', 'w'
-        resource '*', headers: :any, methods: [:get, :post, :options, :put, :delete, :patch]
+      # Access-Control-Allow-Origin
+      config.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins 'localhost:3000', /https*:\/\/.*?bloopist\.com/
+          resource '*', :headers => :any, :methods => :any
+        end
       end
-    end
+  
     
     config.api_only = true
   end
